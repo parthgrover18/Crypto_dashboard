@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Header from './components/Header';
+import Header from './components/header';
 import Homepage from './pages/homePage';
 import Coinpage from './pages/coinPage';
 import { styled } from '@mui/material/styles';

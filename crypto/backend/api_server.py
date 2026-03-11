@@ -6,10 +6,18 @@ from typing import Any, Dict
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 
-try:
-    from .prediction_service import prediction_service
-except ImportError:  # Script execution fallback
-    from prediction_service import prediction_service
+_prediction_service = None
+
+
+def _get_prediction_service():
+    global _prediction_service
+    if _prediction_service is None:
+        try:
+            from .prediction_service import prediction_service as service
+        except ImportError:  # Script execution fallback
+            from prediction_service import prediction_service as service
+        _prediction_service = service
+    return _prediction_service
 
 
 def _parse_origins() -> list[str]:
@@ -56,7 +64,8 @@ def get_predictions(
     ),
 ) -> Dict[str, Any]:
     try:
-        response = prediction_service.generate_predictions(
+        service = _get_prediction_service()
+        response = service.generate_predictions(
             coin_id=coin_id,
             force_refresh=force_refresh,
             current_price_hint=current_price_usd,

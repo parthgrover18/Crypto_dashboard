@@ -1,0 +1,13 @@
+fastapi>=0.116.0
+uvicorn[standard]>=0.35.0
+numpy>=2.2.0
+pandas>=2.2.0
+scikit-learn>=1.6.0
+yfinance>=0.2.52
+xgboost>=3.0.0
+tensorflow>=2.18.0
+mwclient>=0.11.0
+transformers>=4.49.0
+torch>=2.6.0
+pymongo>=4.11.0
+requests>=2.32.0

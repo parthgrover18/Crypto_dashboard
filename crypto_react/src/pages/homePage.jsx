@@ -1,4 +1,4 @@
-import Carousel from '/src/components/carousel.jsx';
+import Carousel from '../components/Carousel';
 import Banner from '../components/Banner';
 import Footer from '../components/Footer';
 import Coinstable from '../components/Coinstable';

@@ -28,3 +28,4 @@ Set custom backend URL:
 cp .env.example .env
 # edit VITE_PREDICTION_API_URL
 ```
+
